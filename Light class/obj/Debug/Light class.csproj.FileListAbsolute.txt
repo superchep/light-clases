@@ -1,0 +1,16 @@
+C:\CN2\TtT Dec 15\light class\Light class\Light class\bin\Light class.dll
+C:\CN2\TtT Dec 15\light class\Light class\Light class\bin\Light class.pdb
+C:\CN2\TtT Dec 15\light class\Light class\Light class\bin\Crestron.SimplSharpPro.DeviceSupport.dll
+C:\CN2\TtT Dec 15\light class\Light class\Light class\bin\Crestron.SimplSharpPro.Lighting.dll
+C:\CN2\TtT Dec 15\light class\Light class\Light class\bin\Crestron.SimplSharpPro.UI.dll
+C:\CN2\TtT Dec 15\light class\Light class\Light class\bin\SimplSharpCustomAttributesInterface.dll
+C:\CN2\TtT Dec 15\light class\Light class\Light class\bin\SimplSharpHelperInterface.dll
+C:\CN2\TtT Dec 15\light class\Light class\Light class\bin\SimplSharpPro.exe
+C:\CN2\TtT Dec 15\light class\Light class\Light class\obj\Debug\ResolveAssemblyReference.cache
+C:\CN2\TtT Dec 15\light class\Light class\Light class\obj\Debug\Light class.dll
+C:\CN2\TtT Dec 15\light class\Light class\Light class\obj\Debug\Light class.pdb
+C:\Users\superchep\Documents\Visual Studio 2008\Projects\light class\Light class\Light class\bin\Light class.dll
+C:\Users\superchep\Documents\Visual Studio 2008\Projects\light class\Light class\Light class\bin\Light class.pdb
+C:\Users\superchep\Documents\Visual Studio 2008\Projects\light class\Light class\Light class\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\superchep\Documents\Visual Studio 2008\Projects\light class\Light class\Light class\obj\Debug\Light class.dll
+C:\Users\superchep\Documents\Visual Studio 2008\Projects\light class\Light class\Light class\obj\Debug\Light class.pdb
