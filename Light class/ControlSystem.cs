@@ -70,7 +70,7 @@ namespace Light_class
 		miDimmer = new ClwDimswexP ( 0x10, this.ControllerRFGatewayDevice );
                 if( miDimmer.Register() != eDeviceRegistrationUnRegistrationResponse.Success)
                 {
-		  // Si lo pudo registrar!!
+                        ErrorLog.Error("Error to Register the Dimmer");
 		}
 
 
@@ -151,6 +151,11 @@ namespace Light_class
                 {
                     case 1:
                         CrestronConsole.PrintLine("Press1 ON");
+			// Obtener las cargas del dimmer
+			foreach (ClwAdvDimLoad carga in miDimmer.DimmingLoads )
+			{
+				carga.FullOn();
+			}
                         break; 
                     case 2:
                         CrestronConsole.PrintLine("Press2 OFF");
