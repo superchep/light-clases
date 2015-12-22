@@ -67,8 +67,7 @@ namespace Light_class
 
                 #endregion */
 
-		/* el uno (1) es porque supongo que el RFID es 1 */
-		miDimmer = new ClwDimswexP ( 1, this.ControllerRFGatewayDevice );
+		miDimmer = new ClwDimswexP ( 0x10, this.ControllerRFGatewayDevice );
                 if( miDimmer.Register() != eDeviceRegistrationUnRegistrationResponse.Success)
                 {
 		  // Si lo pudo registrar!!
