@@ -14,7 +14,8 @@ namespace Light_class
     {
         private XpanelForSmartGraphics myPanel;
         private SigGroup mySigGroup;
-        private ClwDimswexP myClwdimswP;
+//        private ClwDimswexP myClwdimswP;
+	private ClwDimswexP miDimmer;
 #if IncludeSampleCode
         public Tsw750 My750;
         public Tsw550 My550;
@@ -29,8 +30,7 @@ namespace Light_class
         /// Constructor of the Control System Class. Make sure the constructor always exists.
         /// If it doesn't exit, the code will not run on your 3-Series processor.
         /// </summary>
-        public ControlSystem()
-            : base()
+        public ControlSystem() : base()
         {
 
             // Set the number of system and user threads which you want to use in your program .
@@ -66,6 +66,13 @@ namespace Light_class
                 myClwdimswP = (uint 0x10, GatewayBase Internal);
 
                 #endregion */
+
+                if( miDimmer.Regiter() != eDeviceRegistrationUnRegistrationResponse.Success)
+                {
+		  // Si lo pudo registrar!!
+		}
+
+
             }
             catch (Exception e)
             {
