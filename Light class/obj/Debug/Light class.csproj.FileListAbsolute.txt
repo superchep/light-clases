@@ -14,3 +14,14 @@ C:\Users\superchep\Documents\Visual Studio 2008\Projects\light class\Light class
 C:\Users\superchep\Documents\Visual Studio 2008\Projects\light class\Light class\Light class\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\superchep\Documents\Visual Studio 2008\Projects\light class\Light class\Light class\obj\Debug\Light class.dll
 C:\Users\superchep\Documents\Visual Studio 2008\Projects\light class\Light class\Light class\obj\Debug\Light class.pdb
+C:\Users\jreyes\light-clases\Light class\bin\Light class.dll
+C:\Users\jreyes\light-clases\Light class\bin\Light class.pdb
+C:\Users\jreyes\light-clases\Light class\bin\Crestron.SimplSharpPro.DeviceSupport.dll
+C:\Users\jreyes\light-clases\Light class\bin\Crestron.SimplSharpPro.Lighting.dll
+C:\Users\jreyes\light-clases\Light class\bin\Crestron.SimplSharpPro.UI.dll
+C:\Users\jreyes\light-clases\Light class\bin\SimplSharpCustomAttributesInterface.dll
+C:\Users\jreyes\light-clases\Light class\bin\SimplSharpHelperInterface.dll
+C:\Users\jreyes\light-clases\Light class\bin\SimplSharpPro.exe
+C:\Users\jreyes\light-clases\Light class\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\jreyes\light-clases\Light class\obj\Debug\Light class.dll
+C:\Users\jreyes\light-clases\Light class\obj\Debug\Light class.pdb

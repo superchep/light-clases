@@ -12,10 +12,11 @@ namespace Light_class
 {
     public class ControlSystem : CrestronControlSystem
     {
-        private XpanelForSmartGraphics myPanel;
+        public XpanelForSmartGraphics myPanel;
         private SigGroup mySigGroup;
 //        private ClwDimswexP myClwdimswP;
-	private ClwDimswexP miDimmer;
+        private ClwDimswexP myClwDimswexP;
+        private ClwAdvDimLoad myClwDimswexPLoad;
 #if IncludeSampleCode
         public Tsw750 My750;
         public Tsw550 My550;
@@ -67,11 +68,11 @@ namespace Light_class
 
                 #endregion */
 
-		miDimmer = new ClwDimswexP ( 0x10, this.ControllerRFGatewayDevice );
-                if( miDimmer.Register() != eDeviceRegistrationUnRegistrationResponse.Success)
+		myClwDimswexP = new ClwDimswexP ( 0x10, this.ControllerRFGatewayDevice );
+                if( myClwDimswexP.Register() != eDeviceRegistrationUnRegistrationResponse.Success)
                 {
                         ErrorLog.Error("Error to Register the Dimmer");
-		}
+		        }
 
 
             }
@@ -143,28 +144,56 @@ namespace Light_class
 
         void Value_SigChange(GenericBase currentDevice, SmartObjectEventArgs args)
         {
-            mySigGroup.StringValue = String.Format("Event type {0}, Signal: {1}, from Smart Object: {2}", args.Sig.Type, args.Sig.Name, args.SmartObjectArgs.ID);
+            mySigGroup.StringValue = String.Format("Event type {0}, Signal: {1}, from Smart Object: {2}, number press {3}", args.Sig.Type, args.Sig.Name, args.SmartObjectArgs.ID, args.Sig.Number);
             #region control CLW-DIMSWEX-P
             if (args.SmartObjectArgs.ID == 10) 
             { 
                 switch (args .Sig .Number)
                 {
+                        
                     case 1:
                         CrestronConsole.PrintLine("Press1 ON");
+                       
 			// Obtener las cargas del dimmer
-			foreach (ClwAdvDimLoad carga in miDimmer.DimmingLoads )
+                        foreach (ClwAdvDimLoad carga in myClwDimswexP.DimmingLoads)
 			{
 				carga.FullOn();
+                myPanel.UShortInput[(uint)eXpanelfeedbacks.myRamp10].UShortValue = (ushort)(carga.Level.UShortValue);
 			}
                         break; 
-                    case 2:
-                        CrestronConsole.PrintLine("Press2 OFF");
-                        break;                      
                     case 3:
+                        CrestronConsole.PrintLine("Press2 OFF");
+                        foreach (ClwAdvDimLoad carga in myClwDimswexP.DimmingLoads)
+                        {
+                            carga.DelayedOff();
+                            myPanel.UShortInput[(uint)eXpanelfeedbacks.myRamp10].UShortValue = (ushort)(carga.Level.UShortValue);
+                          
+                        }
+                        break;                      
+                    case 5:
                         CrestronConsole.PrintLine("Press3 Preset 1");
+                        foreach (DimmingLoad carga in myClwDimswexP.DimmingLoads)
+                        {
+                            //carga.Level.CreateRamp(15000,500);
+                            carga.Level.CreateRamp((65535 / 100 * 25), 300);
+                            //carga.Level.StopRamp();
+                            myPanel.UShortInput[(uint)eXpanelfeedbacks.myRamp10].UShortValue = (ushort)(carga.Level.UShortValue);
+                        }                        
                         break;
-                    case 4:
-                        CrestronConsole.PrintLine("Press3 Preset 2");
+                    case 7:
+                        CrestronConsole.PrintLine("Press4 Preset 2");
+                        foreach (DimmingLoad carga in myClwDimswexP.DimmingLoads)
+                        {
+                            carga.Level.CreateRamp((65535/100*50),500);
+                            //carga.Level.StopRamp();
+                            //myPanel.UShortInput[10].UShortValue = carga.LevelFeedback.RampingInformation;
+                            //while(carga.Level.IsRamping){}
+                            
+                            myPanel.UShortInput[(uint)eXpanelfeedbacks.myRamp10].UShortValue = (ushort)(carga.Level.UShortValue);
+                            //myPanel.UShortInput[10].UShortValue = myPanel.UShortOutput[10].UShortValue;
+                            CrestronConsole.PrintLine("El valor de ushort es {0}",carga.LevelFeedback .UShortValue);
+                            CrestronConsole.PrintLine("El valor de .level es {0}", carga.Level.UShortValue);
+                        }
                         break;                 
                 }       
          
