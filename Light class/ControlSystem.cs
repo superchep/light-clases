@@ -193,7 +193,7 @@ namespace Light_class
                             UShortInputSig entrada = myPanel.UShortInput[(uint)eXpanelfeedbacks.myRamp10];
                             UShortOutputSig salida = entrada.tiedSig; //< obtener la salida asociada
 
-                            salida.UShortValue = (ushort)(carga.Level.UShortValue);
+                            salida.UShortValue = (ushort)(1000); //<< valor de 1000 sólo para probar
 
                             //myPanel.UShortInput[10].UShortValue = myPanel.UShortOutput[10].UShortValue;
                             CrestronConsole.PrintLine("El valor de ushort es {0}",carga.LevelFeedback .UShortValue);
