@@ -72,7 +72,7 @@ namespace Light_class
                 if( myClwDimswexP.Register() != eDeviceRegistrationUnRegistrationResponse.Success)
                 {
                         ErrorLog.Error("Error to Register the Dimmer");
-		        }
+	        }
 
 
             }
@@ -142,6 +142,7 @@ namespace Light_class
             myRamp10 = 10
         }
 
+	// Manejador de eventos:
         void Value_SigChange(GenericBase currentDevice, SmartObjectEventArgs args)
         {
             mySigGroup.StringValue = String.Format("Event type {0}, Signal: {1}, from Smart Object: {2}, number press {3}", args.Sig.Type, args.Sig.Name, args.SmartObjectArgs.ID, args.Sig.Number);
@@ -189,7 +190,11 @@ namespace Light_class
                             //myPanel.UShortInput[10].UShortValue = carga.LevelFeedback.RampingInformation;
                             //while(carga.Level.IsRamping){}
                             
-                            myPanel.UShortInput[(uint)eXpanelfeedbacks.myRamp10].UShortValue = (ushort)(carga.Level.UShortValue);
+                            UShortInputSig entrada = myPanel.UShortInput[(uint)eXpanelfeedbacks.myRamp10];
+                            UShortOutputSig salida = entrada.tiedSig; //< obtener la salida asociada
+
+                            salida.UShortValue = (ushort)(carga.Level.UShortValue);
+
                             //myPanel.UShortInput[10].UShortValue = myPanel.UShortOutput[10].UShortValue;
                             CrestronConsole.PrintLine("El valor de ushort es {0}",carga.LevelFeedback .UShortValue);
                             CrestronConsole.PrintLine("El valor de .level es {0}", carga.Level.UShortValue);
